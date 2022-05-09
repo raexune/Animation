@@ -105,9 +105,6 @@ section {
 }
 
 @media (max-width: 810px) {
-    .nav-list {
-        display: none;
-    }
 
     .open-menu {
         display: block;
