@@ -10,6 +10,10 @@
     box-sizing: border-box;
 }
 
+html {
+    font-family: "PT Serif", serif;
+}
+
 
 .slider {
     position: absolute;
@@ -17,7 +21,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(135deg, #F5EEEDff, #D9AE99ff, #8E5D39ff, #C7967Dff);
+    background: linear-gradient(135deg, #C7967Dff, #D9AE99ff, #F5EEEDff);
     z-index: -1;
 }
 
@@ -27,19 +31,45 @@ nav {
     min-height: 10vh;
     color: white;
     align-items: center;
+    padding-top: 2rem;
+    position: relative;
 }
 
-.logo {
+.nav-logo {
     grid-column: 2/3;
     font-size: 24px;
-    font-family: "PT Serif", sans-serif;
 }
 
-.menu {
+.logo-icon {
+    height: 24px;
+    width: 24px;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5rem;
+    grid-column: 3/4;
+    list-style: none;
+}
+
+.nav-list a:link,
+.nav-list a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.open-menu,
+.close-menu {
     grid-column: 3/4;
     justify-self: end;
     height: 24px;
     width: 24px;
+    display: none;
+    position: absolute;
+    bottom: 16px;
+    right: 0;
 }
 
 section {
@@ -47,12 +77,15 @@ section {
     height: 80vh;
     justify-content: center;
     align-items: center;
+
 }
 
 .hero {
     width: 100%;
     height: 80%;
     border: 5px solid white;
+    position: relative;
+
 }
 
 .hero-img {
@@ -63,11 +96,59 @@ section {
 
 .headline {
     position: absolute;
-    top: 75%;
-    left: 20%;
+    bottom: 2%;
+    right: 2%;
     font-size: 80px;
-    transform: translate(-20%, -70%);
+    /* transform: translate(-20%, -20%); */
     color: white;
-    font-family: "PT Serif", sans-serif;
     font-weight: 700;
+}
+
+@media (max-width: 810px) {
+    .nav-list {
+        display: none;
+    }
+
+    .open-menu {
+        display: block;
+        cursor: pointer;
+
+    }
+
+    .close-menu {
+        display: none;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .nav-list {
+        position: fixed;
+        transform: translateY(-100%);
+        transition: all .2s;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99;
+        background: #303025ff;
+        color: white;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+    }
+
+
+    .show-menu {
+        transform: translateY(0);
+    }
+
+    .headline {
+        top: 2%;
+        left: 3%;
+        color: #303025ff;
+        /* transform: translate(-20%, -30%); */
+
+    }
 }
